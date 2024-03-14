@@ -11,6 +11,7 @@ interface CouterState{
     posts: Post[]
     increment: (value:number) =>void
     getPosts: ()=> Promise<void>
+    clearStore: ()=>void
 }
 
 export const useCounterStore=create<CouterState>((set)=>({
@@ -26,5 +27,8 @@ export const useCounterStore=create<CouterState>((set)=>({
             ...state,
             posts
         }))
+    },
+    clearStore:()=>{
+        set({}, true)
     }
 }))
