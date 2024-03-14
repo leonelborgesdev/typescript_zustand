@@ -8,8 +8,9 @@ interface Post{
 interface CouterState{
     count: number
     title: string
-    increment: (value:number) =>void
     posts: Post[]
+    increment: (value:number) =>void
+    getPosts: ()=> Promise<void>
 }
 
 export const useCounterStore=create<CouterState>((set)=>({

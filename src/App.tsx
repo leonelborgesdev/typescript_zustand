@@ -8,7 +8,9 @@ function App() {
     title: state.title
   }), shallow);
 
-  const increment=useCounterStore(state=> state.increment);
+  const {increment, getPosts}=useCounterStore();
+
+  getPosts()
 
   return (
     <div className="App">
