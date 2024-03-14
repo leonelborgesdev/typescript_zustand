@@ -1,21 +1,8 @@
 
 import { createWithEqualityFn } from "zustand/traditional";
-interface Post{
-    id: number
-    title: string
-    body: string
-}
-interface CouterState{
-    count: number
-    title: string
-    posts: Post[]
-    increment: (value:number) =>void
-    getPosts: ()=> Promise<void>
-    clearStore: ()=>void
-    multiply: (value:number)=>void
-}
+import { CouterState } from "./typesData";
 
-export const useStore = createWithEqualityFn<CouterState>((set, get)=>({
+export const counterStore = createWithEqualityFn<CouterState>((set, get)=>({
     count: 10,
     title: "Some title",
     posts: [],

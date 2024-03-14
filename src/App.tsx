@@ -1,17 +1,16 @@
 import { shallow } from "zustand/shallow";
-import { createWithEqualityFn } from "zustand/traditional";
 import { useEffect } from "react";
-import { useStore } from "./store/counterStore";
+import { counterStore } from "./store/counterStore";
 
 function App() {
 
-  const {title, count, posts}= useStore((state)=> ({
+  const {title, count, posts}= counterStore((state)=> ({
     count: state.count,
     title: state.title,
     posts: state.posts
   }), shallow);
 
-  const {increment, getPosts, clearStore, multiply}=useStore();
+  const {increment, getPosts, clearStore, multiply}=counterStore();
 
   useEffect(()=>{
     getPosts()
