@@ -12,7 +12,8 @@ function App() {
 
   return (
     <div className="App">
-      <h1>{title}: {count}</h1>   
+      <h1>{title}: {count}</h1>
+      <button onClick={()=> increment(10)}>Increment by 10</button>
     </div>
   );
 }
