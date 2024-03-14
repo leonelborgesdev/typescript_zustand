@@ -21,8 +21,10 @@ export const useCounterStore=create<CouterState>((set)=>({
         count: state.count + value
     })),
     getPosts: async()=>{
-        const res=await fetch('https://jsonplaceholder.typicode.com/posts');
-        const posts=await res.json()
-        console.log(posts)
+        const posts=await (await fetch('https://jsonplaceholder.typicode.com/posts')).json()
+        set(state=>({
+            ...state,
+            posts
+        }))
     }
 }))
