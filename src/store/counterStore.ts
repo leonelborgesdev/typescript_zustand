@@ -1,5 +1,5 @@
-import create from "zustand";
 
+import { createWithEqualityFn } from "zustand/traditional";
 interface Post{
     id: number
     title: string
@@ -15,7 +15,7 @@ interface CouterState{
     multiply: (value:number)=>void
 }
 
-export const useCounterStore=create<CouterState>((set, get)=>({
+export const useStore = createWithEqualityFn<CouterState>((set, get)=>({
     count: 10,
     title: "Some title",
     posts: [],
